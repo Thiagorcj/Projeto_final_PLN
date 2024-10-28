@@ -10,6 +10,28 @@ Entretanto, quando olhamos para o setor de jogos, notamos uma lacuna significati
 Nesse contexto, decidimos desenvolver um jogo que integra o reconhecimento de fala em tempo real. Este projeto não apenas busca inovar na forma como os jogos são jogados, mas também se relaciona com questões importantes na área da fonoaudiologia. A necessidade de uma pronúncia clara e precisa das palavras se torna essencial para o sucesso dentro do jogo, o que pode auxiliar na reabilitação da fala e na prática de habilidades linguísticas para jogadores que buscam aprimorar sua dicção.  
 Além disso, a criação de modelos especializados para a interpretação de comandos de voz com alta eficiência é uma parte crucial do nosso projeto. Esse aspecto é vital, pois o jogo requer que os jogadores emitam comandos verbais para controlar um navio, realizando ações como navegar, manobrar e executar manobras táticas. A precisão e a resposta imediata do reconhecimento de fala são fundamentais para garantir uma experiência de jogo envolvente e satisfatória.
 Outro aspecto relevante que nossa iniciativa aborda é a acessibilidade. Muitos jogos populares de hoje em dia não consideram as necessidades de jogadores com deficiências, especialmente aqueles que têm dificuldades motoras ou de interação. Ao integrar o reconhecimento de fala, nosso jogo busca criar um espaço inclusivo, permitindo que pessoas com diferentes capacidades possam participar e se divertir em um ambiente de jogo que valoriza suas habilidades e promove a igualdade de oportunidades.
+
+### Explicação código
+A ideia é basicamente criar um dataset a partir de combinações de palavras referentes aos comandos do jogo, treinamos um modelo para que dado uma frase, ele dê como saida determinado comando no jogo. Nesse processo, utilizamos técnicas aprendidas na disciplina como tokenização e vetorização. Como são frases pequenas resolvemos usar Random Forest no modelo e obtemos uma acurácia de 100 por cento. Feito isso, utilizamos a biblioteca SpeechRecognition que apresentou um ótimo resultado na prática. Tendo tais ferramentas e designs criados, unimos tudo isso em um jogo feito em Pygame.
+
+Link documentação Speech Recognition: https://github.com/Uberi/speech_recognition 
+
+### Organização Repositório:
+```
+Projeto Final PLN
+---------------------------------------------------------------------------------------------------
+|
+|-- README.md                       # Arquivo com explicação geral
+|-- design/                         # Dados e mecanismos para design do jogo
+|-- imagens/                        # Imagens utilizadas
+|-- jogo_sem_reconhecimento.py      # Arquivo com jogo sem reconhecimento de fala
+|-- main.py                         # Arquivo principal com jogo completo
+|-- requirements.txt                #Arquivo com importacoes necessarias
+|-- modelo.py                       #Arquivo com modelo e função para retornar o movimento
+|-- modelo/                         #Pasta com processo de criação do modelo de forma detalhada
+|-- relatorio.pdf/                  #Arquivo com relatorio
+|
+```
 ### Como rodar o jogo
 ```
 pip install -r requirements.txt
@@ -17,5 +39,9 @@ pip install -r requirements.txt
 ```
 python main.py
 ```
+Também pode ser necessário instalar o flac. Para MacOs segue o seguinte comando usando homebrew:
 
+```
+brew install flac
+```
 
